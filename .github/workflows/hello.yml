@@ -1,0 +1,14 @@
+name: Django test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello_world:
+    runs-on: ubunute-18.04
+    steps:
+      - name: test action
+        run: |
+         echo "hello world"

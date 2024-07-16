@@ -1,0 +1,21 @@
+{% extends "layout/base.html" %} {% block content %}
+
+<div>
+  <form action="" method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <input type="submit" value="Send" />
+  </form>
+</div>
+{% if tasks %} {% for task in tasks %}
+<div class="card">
+  <h3>{{task.title}}</h3>
+  <h4>{{task.id}}</h4>
+  <h2>{{task.date}}</h2>
+  <p>{{task.content}}</p>
+  <a class="btn btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+  <a class="btn btn-detail" href="{% url 'detail' task.id %}">Detail</a>
+  <a class="btn btn-change" href="{% url 'update' task.id %}">update</a>
+</div>
+{% endfor %} {% else %}
+<h1>None task</h1>
+{% endif %} {% endblock %}
