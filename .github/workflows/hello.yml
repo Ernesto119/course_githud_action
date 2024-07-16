@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: test action
         run: |
-         echo "hello world"
+          echo "hello world"
